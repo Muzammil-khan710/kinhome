@@ -8,7 +8,7 @@ const FeatureProjects = (props: Props) => {
         <section className=" bg-gray-light">
             <div className="md:mx-10 lg:mx-40 py-20">
                 <h2 className="text-6xl font-semibold tracking-wide text-primary-dark">Featured projects</h2>
-                <h4 className="text-gray text-2xl py-4 max-w-[35rem]">Some of the latest and greatest projects from us here at Kin Home.</h4>
+                <h3 className="text-gray text-2xl py-4 max-w-[35rem]">Some of the latest and greatest projects from us here at Kin Home.</h3>
                 <div className="flex gap-5 flex-col my-10 md:flex-row">
                     {projects.map((item) => {
                         return (
