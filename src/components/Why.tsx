@@ -3,7 +3,7 @@ type Props = {}
 const WhyComp = (props: Props) => {
     return (
         <section className="text-primary ml-4 lg:flex-row flex-col flex lg:gap-12 my-20 justify-center">
-            <h2 className="text-5xl lg:mr-20 font-semibold self-start lg:sticky top-[130px] ">Why?</h2>
+            <h2 className="text-5xl lg:mr-20 font-semibold self-start pb-10 lg:sticky top-[130px] ">Why?</h2>
             <div className="container flex flex-col gap-2 text-base lg:max-w-lg">
                 <p>
                     <strong>Drastically reduces or even eliminates your electric bills.</strong> Electricity costs can make up a large portion of your monthly expenses. With a solar panel system, you&apos;ll generate free power for your system&apos;s entire 25+ year lifespan. Even if you &apos;t produce 100 percent of the energy you consume, solar still reduces your utility bills, meaning you&apos;ll save a lot of money.
