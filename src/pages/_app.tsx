@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { onCLS, onFCP, onLCP } from 'web-vitals'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function App({ Component, pageProps }: AppProps) {
   
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Kin Home</title>
       </Head>
+      <Analytics/>
         <Component {...pageProps} />
     </>
   )
