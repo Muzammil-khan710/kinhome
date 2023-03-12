@@ -5,14 +5,18 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 import { onCLS, onFCP, onLCP } from 'web-vitals'
 import { Analytics } from '@vercel/analytics/react'
+import reportWebVitals from '../web-vitals/report'
+import { sendToVercelAnalytics } from '../web-vitals/vitals'
 
 export default function App({ Component, pageProps }: AppProps) {
   
   useEffect(() => {
-    onCLS(console.log)
-    onFCP(console.log)
-    onLCP(console.log)
+    // onCLS(console.log)
+    // onFCP(console.log)
+    // onLCP(console.log)
+    reportWebVitals(sendToVercelAnalytics)
   }, [])
+
 
   return (
     <>
