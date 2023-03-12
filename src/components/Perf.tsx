@@ -1,12 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useRef } from 'react';
 import { onFCP, onLCP, onCLS, onFID, onTTFB, Metric } from 'web-vitals';
 
 type MetricData = {
-  id: string,
-  name: string,
-  value: number
-}
+  id: string;
+  name: string;
+  value: number;
+};
 
 const PerformanceMetrics = () => {
   const [loading, setLoading] = useState(true);
@@ -14,20 +13,6 @@ const PerformanceMetrics = () => {
   const data = useRef<MetricData[]>([]);
 
   useEffect(() => {
-    const reportMetric = (metric: Metric) => {
-      data.current.push({
-        id: metric.id,
-        name: metric.name,
-        value: metric.value
-      })
-    }
-    
-    onCLS(reportMetric);
-    onFID(reportMetric);
-    onFCP(reportMetric);
-    onLCP(reportMetric);
-    onTTFB(reportMetric);
-
     Promise.all([
       new Promise(resolve => onCLS(resolve)),
       new Promise(resolve => onFID(resolve)),
@@ -44,11 +29,14 @@ const PerformanceMetrics = () => {
       setMetrics(metricsData);
       setLoading(false);
     });
-    
+
+    return () => {
+      data.current = [];
+    };
   }, []);
 
   const METRICS_NAMES = ['CLS', 'FID', 'FCP', 'LCP', 'TTFB'];
-  
+
   return (
     <>
       {loading ? (
@@ -66,7 +54,7 @@ const PerformanceMetrics = () => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
 export default PerformanceMetrics;
