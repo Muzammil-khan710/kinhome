@@ -33,6 +33,7 @@ const PerformanceMetrics = () => {
     return () => {
       data.current = [];
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const METRICS_NAMES = ['CLS', 'FID', 'FCP', 'LCP', 'TTFB'];
