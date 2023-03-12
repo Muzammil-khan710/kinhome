@@ -11,12 +11,8 @@ import { sendToVercelAnalytics } from '../web-vitals/vitals'
 export default function App({ Component, pageProps }: AppProps) {
   
   useEffect(() => {
-    // onCLS(console.log)
-    // onFCP(console.log)
-    // onLCP(console.log)
     reportWebVitals(sendToVercelAnalytics)
   }, [])
-
 
   return (
     <>

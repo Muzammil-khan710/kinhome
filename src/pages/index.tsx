@@ -7,6 +7,7 @@ import HappyCustomers from "../components/HappyCustomers";
 import Header from "../components/Header";
 import OurProcess from "../components/OurProcess";
 import OurTeam from "../components/OurTeam";
+import PerformanceMetrics from "../components/Perf";
 import WhyComp from "../components/Why";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <OurTeam/>
       <GetInTouch/>
       <Footer/>
+      <PerformanceMetrics/>
     </>
   )
 }
