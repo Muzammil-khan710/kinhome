@@ -7,7 +7,7 @@ const one = (props: Props) => {
   return (
     <section>
         <h1>Page one</h1>
-        <PerformanceMetrics/>
+        {/* <PerformanceMetrics/> */}
     </section>
   )
 }

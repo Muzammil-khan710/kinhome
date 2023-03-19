@@ -10,16 +10,16 @@ import { sendToVercelAnalytics } from '../web-vitals/vitals'
 
 export default function App({ Component, pageProps }: AppProps) {
   
-  useEffect(() => {
-    reportWebVitals(sendToVercelAnalytics)
-  }, [])
+  // useEffect(() => {
+  //   reportWebVitals(sendToVercelAnalytics)
+  // }, [])
 
   return (
     <>
       <Head>
         <title>Kin Home</title>
       </Head>
-      <Analytics/>
+      {/* <Analytics/> */}
         <Component {...pageProps} />
     </>
   )
