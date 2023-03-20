@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
       /> */}
 
 {/* <!-- Google tag (gtag.js) Rovae start--> */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-S3MW6HSNH8"/>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-6C9XCFCQYB"/>
 
       <script
       dangerouslySetInnerHTML={{
@@ -65,7 +65,7 @@ export default function App({ Component, pageProps }: AppProps) {
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-S3MW6HSNH8');
+        gtag('config', 'G-6C9XCFCQYB');
         `
       }}/>
 {/* <!-- Google tag (gtag.js) Rovae end--> */}
