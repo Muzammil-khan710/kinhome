@@ -4,6 +4,9 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { CLSThresholds, FCPThresholds, FIDThresholds, INPThresholds, LCPThresholds, TTFBThresholds } from 'web-vitals';
 import Script from 'next/script';
+import { pageview } from '../lib/gtag';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 export const isDevEnvironment = process && process.env.NODE_ENV === "development";
 
 const ThresholdMapping = {
@@ -15,12 +18,23 @@ const ThresholdMapping = {
   'FCP': FCPThresholds
 }
 
-
 export default function App({ Component, pageProps }: AppProps) {
 
-  // useEffect(() => {
-  //   reportWebVitals(sendToVercelAnalytics)
-  // }, [])
+  const router = useRouter();
+
+  const handleRouteChange = (url: string) => {
+    pageview(url);
+  }
+
+  useEffect(() => {
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+
+  }, [router.events])
 
   return (
     <>
