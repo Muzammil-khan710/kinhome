@@ -28,19 +28,17 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Kin Home</title>
       </Head>
 
+<Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26'></Script>
+
       <Script 
       id='two'
       dangerouslySetInnerHTML={{
         __html: `
         <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26"></script>
-<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2XX42RRH26');
-</script>
         `
       }} 
       />
