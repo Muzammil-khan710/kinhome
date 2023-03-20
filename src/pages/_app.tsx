@@ -28,17 +28,19 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Kin Home</title>
       </Head>
 
-<Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26'></Script>
+      <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26'></Script>
 
       <Script 
       id='two'
       dangerouslySetInnerHTML={{
         __html: `
         <!-- Google tag (gtag.js) -->
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-2XX42RRH26');
+        if(window.location.hostname === 'www.kinhome.vercel.app' || window.location.hostname === 'kinhome.vercel.app') {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-2XX42RRH26');
+        }
         `
       }} 
       />
@@ -48,11 +50,11 @@ export default function App({ Component, pageProps }: AppProps) {
         dangerouslySetInnerHTML={{
           __html: `
         <!-- Google Tag Manager -->
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MBV3M2Z')
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MBV3M2Z')
 <!-- End Google Tag Manager -->`,
         }}
       />
