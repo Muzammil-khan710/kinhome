@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }} 
       /> */}
 
-{/* <!-- Google tag (gtag.js) Rovae start--> */}
+{/* <!-- Google tag (gtag.js) Rovae start rovae-new--> */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-6C9XCFCQYB"/>
 
       <script
@@ -69,6 +69,21 @@ export default function App({ Component, pageProps }: AppProps) {
         `
       }}/>
 {/* <!-- Google tag (gtag.js) Rovae end--> */}
+
+{/* <!-- Google tag (gtag.js) rovae default --> */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-RYNFW4SE3B"/>
+      
+      <script
+      dangerouslySetInnerHTML={{
+        __html:`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-RYNFW4SE3B');
+        `
+      }}/>
+{/* <!-- Google tag (gtag.js) rovae default end --> */}
 
       <Script
         id='my-script'
