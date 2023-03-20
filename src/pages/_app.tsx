@@ -4,7 +4,7 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { CLSThresholds, FCPThresholds, FIDThresholds, INPThresholds, LCPThresholds, TTFBThresholds } from 'web-vitals';
 import Script from 'next/script';
-// export const isDevEnvironment = process && process.env.NODE_ENV === "development";
+export const isDevEnvironment = process && process.env.NODE_ENV === "development";
 
 const ThresholdMapping = {
   'CLS': CLSThresholds,
@@ -29,9 +29,26 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <Script 
-      id='my-script'
+      id='two'
       dangerouslySetInnerHTML={{
         __html: `
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2XX42RRH26');
+</script>
+        `
+      }} 
+      />
+
+      <Script
+        id='my-script'
+        dangerouslySetInnerHTML={{
+          __html: `
         <!-- Google Tag Manager -->
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -39,28 +56,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MBV3M2Z')
 <!-- End Google Tag Manager -->`,
-}} 
+        }}
       />
 
       {/* <Analytics/> */}
       <Component {...pageProps} />
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBV3M2Z"
-height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBV3M2Z"
+        height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
     </>
   )
 }
 
 
-export function reportWebVitals(metric:  NextWebVitalsMetric) {
+export function reportWebVitals(metric: NextWebVitalsMetric) {
 
-  const { value, id , name , attribution , label } = metric
+  const { value, id, name, attribution, label } = metric
 
 
   // console.log(metric)
 
   const eventParams: any = {
     // Built-in params:
-    value:  Math.round(name === 'CLS' ? value * 1000 : value), // Use `delta` so the value can be summed.
+    value: Math.round(name === 'CLS' ? value * 1000 : value), // Use `delta` so the value can be summed.
     // Custom params:
     metric_id: id, // Needed to aggregate events.
     metric_value: value, // Optional.
@@ -85,5 +102,12 @@ export function reportWebVitals(metric:  NextWebVitalsMetric) {
       break;
   }
 
+
+  if (isDevEnvironment) {
+    console.log(name, eventParams);
+  } else {
+    window.gtag('event', name, eventParams);
+
+  }
 
 }
