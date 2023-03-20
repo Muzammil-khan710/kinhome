@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Kin Home</title>
       </Head>
 
-      <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26'></Script>
+      {/* <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-2XX42RRH26'></Script>
 
       <script 
       dangerouslySetInnerHTML={{
@@ -53,7 +53,22 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-2XX42RRH26');
         `
       }} 
-      />
+      /> */}
+
+{/* <!-- Google tag (gtag.js) Rovae start--> */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-S3MW6HSNH8"/>
+
+      <script
+      dangerouslySetInnerHTML={{
+        __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-S3MW6HSNH8');
+        `
+      }}/>
+{/* <!-- Google tag (gtag.js) Rovae end--> */}
 
       <Script
         id='my-script'
