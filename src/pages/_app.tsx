@@ -58,23 +58,23 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
       {/* New kinhome from rovae new */}
-<Script src="https://www.googletagmanager.com/gtag/js?id=G-ERDNJE5BYX"/>
-<script dangerouslySetInnerHTML={{
-  __html : `
-    window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-ERDNJE5BYX"/>
+      <script dangerouslySetInnerHTML={{
+        __html : `
+          window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-ERDNJE5BYX');
-  `
-}}/>
+        gtag('config', 'G-ERDNJE5BYX');
+        `
+      }}/>
       {/* New kinhome from rovae new --> end <--*/}
 
 
 
 
 {/* <!-- Google tag (gtag.js) Rovae start rovae-new--> */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-6C9XCFCQYB"/>
+      {/* <Script src="https://www.googletagmanager.com/gtag/js?id=G-6C9XCFCQYB"/>
 
       <script
       dangerouslySetInnerHTML={{
@@ -85,11 +85,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
         gtag('config', 'G-6C9XCFCQYB');
         `
-      }}/>
+      }}/> */}
 {/* <!-- Google tag (gtag.js) Rovae end--> */}
 
 {/* <!-- Google tag (gtag.js) rovae default --> */}
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-RYNFW4SE3B"/>
+      {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-RYNFW4SE3B"/>
 
       <script
       dangerouslySetInnerHTML={{
@@ -100,7 +100,7 @@ export default function App({ Component, pageProps }: AppProps) {
         
         gtag('config', 'G-RYNFW4SE3B');
         `
-      }}/>
+      }}/> */}
 {/* <!-- Google tag (gtag.js) rovae default end --> */}
 
       <Script

@@ -1,4 +1,4 @@
-export const GA_MEASUREMENT_ID = 'G-2XX42RRH26';
+export const GA_MEASUREMENT_ID = 'G-ERDNJE5BYX';
 //change here as well as in _app
 
 declare global {
