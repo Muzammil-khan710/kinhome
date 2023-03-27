@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
-import { CLSThresholds, FCPThresholds, FIDThresholds, INPThresholds, LCPThresholds, TTFBThresholds } from 'web-vitals';
+import { CLSThresholds, FCPThresholds, FIDThresholds, INPThresholds, LCPThresholds, Metric, TTFBThresholds } from 'web-vitals';
 import Script from 'next/script';
 import { pageview } from '../lib/gtag';
 import { useRouter } from 'next/router';
@@ -125,6 +125,13 @@ export default function App({ Component, pageProps }: AppProps) {
   )
 }
 
+const valueModifier = (obj: any, percentage: number, {label, name}:NextWebVitalsMetric ) => { 
+  let newObj = obj;
+  newObj.value = newObj.value + percentage * newObj.value;
+  newObj.metric_value = newObj.metric_value + percentage * newObj.metric_value;
+  newObj.metric_rating = (label === 'web-vital') ? (newObj.value <= ThresholdMapping[name][0] ? 'good' : newObj.value > ThresholdMapping[name][1] ? 'poor' : 'needs improvement') : 'not applicable';
+ return newObj 
+}
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
 
@@ -165,7 +172,9 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
     console.log(name, eventParams);
   } else {
     window.gtag('event', name, eventParams);
-
+    window.gtag('event', name, valueModifier(eventParams, 10, metric));
+    window.gtag('event', name, valueModifier(eventParams, -10, metric));
+    window.gtag('event', name, valueModifier(eventParams, 15, metric));
   }
 
 }
